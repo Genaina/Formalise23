@@ -1,0 +1,10 @@
+R{"utility"}max=? [ F step=6 ]
+
+multi(R{"utility"}max=? [ C<=100 ], R{"cost"}<=100 [ C<=100 ])
+
+multi(R{"utility"}max=? [ C<=100 ], R{"cost"}<=25 [ C<=100 ])
+
+multi(R{"utility"}max=? [ C<=100 ], R{"cost"}<=20 [ C<=100 ])
+
+multi(R{"utility"}max=? [ C<=100 ], R{"cost"}<=10 [ C<=100 ])
+
