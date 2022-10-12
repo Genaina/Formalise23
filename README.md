@@ -7,7 +7,7 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 
 ![Keeping Clean](KeepingClean.svg)
 
-The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included [here](https://github.com/Genaina/NIER23/tree/main/EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) that:
+The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included [here](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) that:
     - (requirement 1) maximises the SAS utility 
     - (requirement 2) while keeping the cost no larger than 25. 
     The probabilistic temporal logic formula supplied to PRISM in order to obtain this MDP policy is available here, and the actual policy (in raw PRISM format) is available here, along with the encoding that PRISM used for the MDP states, which we made available here.
