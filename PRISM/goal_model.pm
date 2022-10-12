@@ -86,14 +86,14 @@ module GoalController
 
   // block of commands for the selecting the way in which goal g2 is pursued
   // - If the goal was achieved _or_ is unachievable in any of the potential variants, then don't pursue it
-  [g2_pass] t & (n=0) & (g2_Achieved | !g2_Achievable) -> 1:(g2_pursued'=0)&(n'=1); 
+  [g2_skip] t & (n=0) & (g2_Achieved | !g2_Achievable) -> 1:(g2_pursued'=0)&(n'=1); 
   // - We have a choice of pursuing/not pursuing the goal in any of the available variants
   [g2_pursue0] t & (n=0) & !g2_Achieved & g2_Achievable -> 1:(g2_pursued'=0)&(n'=1);
   [g2_pursue1] t & (n=0) & !g2_Achieved & g2_Achievable -> 1:(g2_pursued'=1)&(n'=1);
 
   // block of commands for the selecting the way in which goal g3 is pursued
   // - If the goal was achieved _or_ is unachievable in any of the potential variants, then don't pursue it
-  [g3_pass] t & (n=1) & (g3_1_Achieved | g3_2_Achieved | (!g3_1_Achievable & !g3_2_Achievable)) -> 1:(g3_pursued'=0)&(n'=2); 
+  [g3_skip] t & (n=1) & (g3_1_Achieved | g3_2_Achieved | (!g3_1_Achievable & !g3_2_Achievable)) -> 1:(g3_pursued'=0)&(n'=2); 
   // - We have a choice of pursuing/not pursuing the goal in any of the available variants
   [g3_pursue0] t & (n=1) & !(g3_1_Achieved | g3_2_Achieved) & (g3_1_Achievable | g3_2_Achievable)-> 1:(g3_pursued'=0)&(n'=2);
   [g3_pursue1] t & (n=1) & !(g3_1_Achieved | g3_2_Achieved) & g3_1_Achievable -> 1:(g3_pursued'=1)&(n'=2);
@@ -101,7 +101,7 @@ module GoalController
 
   // block of commands for the selecting the way in which goal g4 is pursued
   // - If the goal was achieved _or_ is unachievable in any of the potential variants, then don't pursue it
-  [g4_pass] t & (n=2) & (g4_1_Achieved | g4_2_Achieved | (!g4_1_Achievable & !g4_2_Achievable)) -> 1:(g4_pursued'=0)&(n'=3); 
+  [g4_skip] t & (n=2) & (g4_1_Achieved | g4_2_Achieved | (!g4_1_Achievable & !g4_2_Achievable)) -> 1:(g4_pursued'=0)&(n'=3); 
   // - We have a choice of pursuing/not pursuing the goal in any of the available variants
   [g4_pursue0] t & (n=2) & !(g4_1_Achieved | g4_2_Achieved) & (g4_1_Achievable | g4_2_Achievable)-> 1:(g4_pursued'=0)&(n'=3);
   [g4_pursue1] t & (n=2) & !(g4_1_Achieved | g4_2_Achieved) & g4_1_Achievable -> 1:(g4_pursued'=1)&(n'=3);
@@ -109,14 +109,14 @@ module GoalController
 
   // block of commands for the selecting the way in which goal g5 is pursued
   // - If the goal was achieved _or_ is unachievable in any of the potential variants, then don't pursue it
-  [g5_pass] t & (n=3) & (g5_Achieved | !g5_Achievable | !(g2_Achieved | g2_pursued>0)) -> 1:(g5_pursued'=0)&(n'=4); 
+  [g5_skip] t & (n=3) & (g5_Achieved | !g5_Achievable | !(g2_Achieved | g2_pursued>0)) -> 1:(g5_pursued'=0)&(n'=4); 
   // - We have a choice of pursuing/not pursuing the goal in any of the available variants
   [g5_pursue0] t & (n=3) & !g5_Achieved & g5_Achievable & (g2_Achieved | g2_pursued>0) -> 1:(g5_pursued'=0)&(n'=4);
   [g5_pursue1] t & (n=3) & !g5_Achieved & g5_Achievable & (g2_Achieved | g2_pursued>0) -> 1:(g5_pursued'=1)&(n'=4);
 
   // block of commands for the selecting the way in which goal g4 is pursued
   // - If the goal was achieved _or_ is unachievable in any of the potential variants, then don't pursue it
-  [g6_pass] t & (n=4) & (g6_1_Achieved | g6_2_Achieved | ((!g6_1_Achievable | !G1_achieved_or_pursued) & !g6_2_Achievable)) -> 1:(g6_pursued'=0)&(n'=5); 
+  [g6_skip] t & (n=4) & (g6_1_Achieved | g6_2_Achieved | ((!g6_1_Achievable | !G1_achieved_or_pursued) & !g6_2_Achievable)) -> 1:(g6_pursued'=0)&(n'=5); 
   // - We have a choice of pursuing/not pursuing the goal in any of the available variants
   [g6_pursue0] t & (n=4) & !(g6_1_Achieved | g6_2_Achieved) & ((g6_1_Achievable & G1_achieved_or_pursued) | g6_2_Achievable)-> 1:(g6_pursued'=0)&(n'=5);
   [g6_pursue1] t & (n=4) & !(g6_1_Achieved | g6_2_Achieved) & g6_1_Achievable & G1_achieved_or_pursued -> 1:(g6_pursued'=1)&(n'=5);
