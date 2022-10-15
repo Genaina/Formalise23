@@ -20,19 +20,19 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 ## INSTALLATION INSTRUCTIONS TO SYNTHESIZE THE EDGE GOAL CONTROLLER
 1. Install the probabilistic model checker PRISM (freely available [here](https://www.prismmodelchecker.org/download.php)) on your computer.
 2. Start the PRISM GUI and load the [EDGE MDP model](EDGE-CaseStudy/EDGE_MDP.pm) into PRISM. Below a screenshot of the loaded file in PRISM:
-![](imgs/PRISMScreenshot.PNG)
+![](imgs/PRISMScreenshot.png)
 3. Load the [PCTL-encoded property](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below a screenshot of the expect loaded properties file:
-![](imgs/PRISMProperties.PNG)
+![](imgs/PRISMProperties.png)
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
 ..1. Choosing Options in the Options menu.
 ..2. In 'Adversary Export' property, choose DTMC.
 ..3. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
 ..4. Select 'Save Options.
-![](imgs/PRISMPolicyScreen.PNG)
+![](imgs/PRISMPolicyScreen.png)
 5. Go to the Properties tab, and right-click on the first property. Then select Verify. The expected outcome is depicted below.
-![](imgs/PRISMPropertyVerified.PNG)
+![](imgs/PRISMPropertyVerified.png)
 7. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it a file
-![](imgs/PRISMExportStates.PNG)
+![](imgs/PRISMExportStates.png)
 9. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
 
 While pursuing all first variants, the system failed while pursuing G3a. The trace below can be found in line 52931 of your exported PRISM states file, which should be also found in the [MDPstates.txt file](EDGE-CaseStudy/MDPstates.txt). In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when step = 2 (pursuing G3), it failed (prior to last field in the tuple below fail = true)
