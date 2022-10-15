@@ -11,9 +11,6 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) that:
 Requirement 1: maximises the SAS utility
 
-    41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
-
-
     R{"utility"}max=?[ F step=6 ]
          
 Requirement 2: while keeping the cost no larger than 25. 
