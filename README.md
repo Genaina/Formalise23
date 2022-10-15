@@ -9,10 +9,12 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 ![Keeping Clean](imgs/KeepingClean.svg)
 
 The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) that:
+    Requirement 1: maximises the SAS utility
     
-    - Requirement 1: maximises the SAS utility 
+     R{"utility"}max=? [ F step=6 ]  
+    Requirement 2: while keeping the cost no larger than 25. 
     
-    - Requirement 2: while keeping the cost no larger than 25. 
+    multi(R{"utility"}max=? [ C<=100 ], R{"cost"}<=25 [ C<=100 ])
     
 The probabilistic temporal logic formula supplied to PRISM in order to obtain this MDP policy is available [in the Requirements.pctl](EDGE-CaseStudy/Requirements.pctl) file, and the actual policy (in raw PRISM format) is available [in the GoalController.txt](EDGE-CaseStudy/GoalController.txt) file, along with the encoding that PRISM used for the MDP states, which we made available [in the MDPstates.txt](EDGE-CaseStudy/MDPstates.txt) file.
 
@@ -48,15 +50,15 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
-    - 52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
+    52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
 
 The trace above is an excerpt of the [MDPstates.txt file](EDGE-CaseStudy/MDPstates.txt). 
 
 Given the turn to the controller, it pursues another variant for G3, and skips G2 as it was already achieved as indicated by the first two fields in the tuple below (0,2,...). Notice that the controller is still with the turn (t=true) as it can be noticed from the last field of the tuple below. 
 
-    - 41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
 Then the full policy below is passed to the Change Management, where G2 is no longer pursued as it has been already achieved:
 
-    - 41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
+    41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
 
