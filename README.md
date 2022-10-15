@@ -29,10 +29,10 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 ![](imgs/PRISMProperties.png)
 
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
-..1. Choosing Options in the Options menu.
-..2. In 'Adversary Export' property, choose DTMC.
-..3. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
-..4. Select 'Save Options.
+.. Choosing Options in the Options menu.
+.. In 'Adversary Export' property, choose DTMC.
+.. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
+.. Select 'Save Options.
 ![](imgs/PRISMPolicyScreen.png)
 
 5. Go to the Properties tab, and right-click on the first property. Then select Verify. The expected outcome is depicted below.
@@ -45,11 +45,12 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
 
-While pursuing all first variants, the system failed while pursuing G3a. The trace below can be found in line 52931 of your exported PRISM states file, which should be also found in the [MDPstates.txt file](EDGE-CaseStudy/MDPstates.txt). In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when step = 2 (pursuing G3), it failed (prior to last field in the tuple below fail = true)
+The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
+The trace above is an excerpt of the [MDPstates.txt file](EDGE-CaseStudy/MDPstates.txt). 
 
-Given the turn to the controller, it pursues another variant for G3, but skips G2 as it was already achieved. The first two field in the tuple below (0,2,...). Notice that the controller is still with the Turn (t=true) as the last field of the tuple below.  
+Given the turn to the controller, it pursues another variant for G3, and skips G2 as it was already achieved as indicated by the first two fields in the tuple below (0,2,...). Notice that the controller is still with the turn (t=true) as it can be noticed from the last field of the tuple below.  
 41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
-And the full policy below is passed to the Change Management, where G2 is no longer pursued as it has been already achieved:
+Then the full policy below is passed to the Change Management, where G2 is no longer pursued as it has been already achieved:
 41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
