@@ -1,4 +1,4 @@
-# EDGE - An ExtenDed Goal modElling paradigm for self-adaptive (SAS) systems
+# EDGE - An ExtenDed Goal modElling paradigm for self-adaptive systems (SAS) 
 
 We propose EDGE, an ExtenDed Goal modElling paradigm for self-adaptive systems (SAS). The EDGE notation - shown below - provides support for the specification of goal variants, properties, status and dependencies, and allows the automated synthesis of goal controllers for the goal management layer of SAS.
 
