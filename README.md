@@ -8,7 +8,7 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 
 ![Keeping Clean](imgs/KeepingClean.svg)
 
-The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP). We take as an example the two property requirements below:
+The Markov decision process derived by applying our method to the goal model to maintain a patient's room is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP). We take as an example the two property requirements below:
 
 Requirement 1: maximises the SAS utility:
 
