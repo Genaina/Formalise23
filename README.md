@@ -24,10 +24,15 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 3. Load the [PCTL-encoded property](EDGE-CaseStudy/Requirements.pctl) into PRISM. 
 <<<<We add a screenshot with the property loaded into PRISM below this step.>>>>
 4. Configure PRISM to export the MDP policies it synthesises to a file by:
+    
 ..1. Choosing Options in the Options menu.
+    
 ..2. In 'Adversary Export' property, choose DTMC
+
 ..3. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM
+
 ..4. Select 'Save Options.
+
 5. Go to the Properties tab, and right-click on the first property. Then select Verify as depicted below.
 6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it a file
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
