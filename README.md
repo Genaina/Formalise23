@@ -40,7 +40,7 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 ![](imgs/PRISMPropertyVerified.png)
 
-6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it a file
+6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it into a file name at your preference.
 
 ![](imgs/PRISMExportStates.png)
 
