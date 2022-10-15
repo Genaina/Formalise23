@@ -1,5 +1,6 @@
-# NIER23
-We propose EDGE, an ExtenDed Goal modElling paradigm for self-adaptive (SAS) systems. The EDGE notation - shown below - provides support for the specification of goal variants, properties, status and dependencies, and allows the automated synthesis of goal controllers for the goal management layer of SAS.
+# EDGE - An ExtenDed Goal modElling paradigm for self-adaptive (SAS) systems
+
+We propose EDGE, an ExtenDed Goal modElling paradigm for self-adaptive systems (SAS). The EDGE notation - shown below - provides support for the specification of goal variants, properties, status and dependencies, and allows the automated synthesis of goal controllers for the goal management layer of SAS.
 
 ![EDGE Notation](EDGENotation.svg)
 
@@ -16,17 +17,17 @@ The Markov decision process derived by applying the method from our ICSE-NIER 20
 The probabilistic temporal logic formula supplied to PRISM in order to obtain this MDP policy is available [in the Requirements.pctl](EDGE-CaseStudy/Requirements.pctl) file, and the actual policy (in raw PRISM format) is available [in the GoalController.txt](EDGE-CaseStudy/GoalController.txt) file, along with the encoding that PRISM used for the MDP states, which we made available [in the MDPstates.txt](EDGE-CaseStudy/MDPstates.txt) file.
 
 
-# INSTALLATION INSTRUCTIONS TO SYNTHESIZE THE EDGE GOAL CONTROLLER
+## INSTALLATION INSTRUCTIONS TO SYNTHESIZE THE EDGE GOAL CONTROLLER
 1. Install the probabilistic model checker PRISM (freely available [here](https://www.prismmodelchecker.org/download.php)) on your computer.
 2. Start the PRISM GUI and load the [EDGE MDP model](EDGE-CaseStudy/EDGE_MDP.pm) into PRISM. 
 <<<PRISM screenshot to be loaded here>>>
 3. Load the [PCTL-encoded property](EDGE-CaseStudy/Requirements.pctl) into PRISM. 
 <<<<We add a screenshot with the property loaded into PRISM below this step.>>>>
 4. Configure PRISM to export the MDP policies it synthesises to a file by:
-..1. Choosing Options in the Options menu.
-..2. In 'Adversary Export' property, choose DTMC
-..3. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM
-..4. Select 'Save Options.
+.. 1. Choosing Options in the Options menu.
+.. 2. In 'Adversary Export' property, choose DTMC
+.. 3. In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM
+.. 4. Select 'Save Options.
 5. Go to the Properties tab, and right-click on the first property. Then select Verify as depicted below.
 6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it a file
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
