@@ -50,7 +50,7 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
 
-The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
+The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
     52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
 
