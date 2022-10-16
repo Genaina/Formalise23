@@ -60,7 +60,7 @@ Given the turn to the controller, it pursues another variant for G3, and skips G
 
     41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
-Then the full policy below is passed to the Change Management, where G2 is no longer pursued as it has been already achieved:
+Then the full policy below is passed to the Change Management, where G2 is no longer pursued(G2_pursued=0 in the first field) as it has been already achieved:
 
     41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
 
