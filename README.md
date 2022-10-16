@@ -34,8 +34,8 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
     - Choosing Options in the Options menu.
-    - In 'Adversary Export' property, choose DTMC.
-    - In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
+    - In 'Adversary export' property, choose DTMC.
+    - In 'Adversary export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
     - Select 'Save Options.
     
 ![](imgs/PRISMPolicyScreen.png)
