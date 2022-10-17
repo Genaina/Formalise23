@@ -8,7 +8,7 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 
 ![Keeping Clean](imgs/KeepingClean.svg)
 
-The Markov decision process derived by applying the method from our ICSE-NIER 2023 submission to this EDGE goal model is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP). We take as an example the two property requirements below:
+The Markov decision process derived by applying our method to the goal model to maintain a patient's room is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP). We take as an example the two property requirements below:
 
 Requirement 1: maximises the SAS utility:
 
@@ -34,9 +34,9 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
     - Choosing Options in the Options menu.
-    - In 'Adversary Export' property, choose DTMC.
-    - In 'Adversary Export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
-    - Select 'Save Options.
+    - In 'Adversary export' property, choose DTMC.
+    - In 'Adversary export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
+    - Select 'Save Options'.
     
 ![](imgs/PRISMPolicyScreen.png)
 
@@ -50,7 +50,7 @@ The probabilistic temporal logic formula supplied to PRISM in order to obtain th
 
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
 
-The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variant of the goal model were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
+The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
     52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
 
@@ -60,7 +60,7 @@ Given the turn to the controller, it pursues another variant for G3, and skips G
 
     41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
-Then the full policy below is passed to the Change Management, where G2 is no longer pursued as it has been already achieved:
+Then the full policy below is passed to the Change Management, where G2 is no longer pursued(G2_pursued=0 in the first field) as it has been already achieved:
 
     41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
 
