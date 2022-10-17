@@ -8,7 +8,7 @@ We illustrate the use for the EDGE notation below, for a SAS comprising a robot 
 
 ![Keeping Clean](imgs/KeepingClean.svg)
 
-The Markov decision process derived by applying our method to the EDGE goal model for maintaining a patient's room is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) which satisfies a requirement specified in the PRISM extension of probabilistic computational tree logic. Two examples of such requirements (each of which yields a different goal controller) are given below.
+The Markov decision process derived by applying our method to the EDGE goal model for maintaining a patient's room is included in the [EDGE-CaseStudy folder](EDGE-CaseStudy). We used the probabilistic model checker PRISM to synthesise a goal controller (i.e., a policy for this MDP) which satisfies a requirement specified in the PRISM extension of probabilistic computational tree logic (PCTL). Two examples of such requirements (each of which yields a different goal controller) are given below.
 
 Requirement option 1: Maximise the SAS utility:
 
@@ -22,7 +22,7 @@ Requirement option 2: Maximise the SAS utility subject to keeping the cost no la
     
 (i.e., obtain the policy that maximises the expected MDP reward labelled "utility" cumulated for MDP paths of 100 states, subject to the expected MDP reward labelled "cost" not exceeding 25 for MDP paths of the same lenght; we note that 100 states is a conservative overestimate of the number of MDP states that need to be traversed before each goal selected by the goal controller is either achieved, or attempted and found to be unachievable.).
 
-These two probabilistic temporal logic formulae that can be supplied to PRISM in order to obtain two MDP policies are available [in the Requirements.pctl](EDGE-CaseStudy/Requirements.pctl) file, and the actual policy (in raw PRISM format) for the second requirement is available [in the GoalController.txt](EDGE-CaseStudy/GoalController.txt) file, along with the encoding that PRISM used for the MDP states, which we made available [in the MDPstates.txt](EDGE-CaseStudy/MDPstates.txt) file.
+These two probabilistic temporal logic formulae that can be supplied to PRISM in order to obtain different MDP policies are available [in the Requirements.pctl](EDGE-CaseStudy/Requirements.pctl) file, and the actual policy (in raw PRISM format) for the second requirement is available [in the GoalController.txt](EDGE-CaseStudy/GoalController.txt) file, along with the encoding that PRISM used for the MDP states, which we made available [in the MDPstates.txt](EDGE-CaseStudy/MDPstates.txt) file.
 
 
 ## INSTRUCTIONS TO SYNTHESIZE THE EDGE GOAL CONTROLLER
