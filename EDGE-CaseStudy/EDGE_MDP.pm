@@ -67,7 +67,6 @@ formula G1_achieved_or_pursued =
              (G4a_achieved | G4b_achieved | G4_pursued>0) & 
              (G5_achieved | G5_pursued>0);
 
-
 module ChangeMgmt
   // variables required for each goal g1, g2, ... with its variants 1, 2, 3, ...ble::
   G2_achievable: bool init true;
