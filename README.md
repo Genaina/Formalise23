@@ -28,7 +28,7 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 ## INSTRUCTIONS TO SYNTHESIZE THE EDGE GOAL CONTROLLER
 1. Install the probabilistic model checker PRISM (freely available [here](https://www.prismmodelchecker.org/download.php)) on your computer.
 
-2. Start the PRISM GUI and load the [EDGE MDP model](EDGE-CaseStudy/EDGE_MDP.pm) into PRISM. Below a screenshot of the loaded file in PRISM:
+2. Start the PRISM GUI and load the [EDGE MDP model](EDGE-CaseStudy/EDGE_MDP.pm) into PRISM. Below, we provide a screenshot of the loaded file in PRISM:
 
 ![](imgs/PRISMScreenshot.png)
 
