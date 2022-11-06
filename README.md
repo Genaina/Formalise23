@@ -30,11 +30,11 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 
 2. Start the PRISM GUI and load the [EDGE MDP model](EDGE-CaseStudy/EDGE_MDP.pm) into PRISM. Below, we provide a screenshot of the loaded file in PRISM:
 
-![](imgs/PRISMScreenshot.png)
+![](imgs/PRISMScreenshot2.png)
 
 3. Load the [PCTL-encoded property](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below a screenshot of the expect loaded properties file:
 
-![](imgs/PRISMProperties.png)
+![](imgs/PRISMProperties2.png)
 
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
     - Choosing Options in the Options menu.
@@ -42,15 +42,15 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
     - In 'Adversary export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
     - Select 'Save Options'.
     
-![](imgs/PRISMPolicyScreen.png)
+![](imgs/PRISMPolicyScreen2.png)
 
 5. Go to the Properties tab, and right-click on the first property. Then select Verify. The expected outcome is depicted below.
 
-![](imgs/PRISMPropertyVerified.png)
+![](imgs/PRISMPropertyVerified2.png)
 
 6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it into a file name at your preference.
 
-![](imgs/PRISMExportStates.png)
+![](imgs/PRISMExportStates2.png)
 
 7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
 
