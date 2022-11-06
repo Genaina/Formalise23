@@ -63,8 +63,8 @@ endmodule
 
 formula G1_achieved_or_pursued = 
              (G2_achieved | G2_pursued>0) & 
-             (G3a_achievable | G3b_achievable | G3_pursued>0) & 
-             (G4a_achievable | G4b_achievable | G4_pursued>0) & 
+             (G3a_achieved | G3b_achieved | G3_pursued>0) & 
+             (G4a_achieved | G4b_achieved | G4_pursued>0) & 
              (G5_achieved | G5_pursued>0);
 
 
@@ -145,8 +145,8 @@ rewards "utility"
   [success] G1a_achieved : 12;
   [success] G1b_achieved : 0;
   [success] G2_achieved : 10;
-  [success] G3a_achieved : 5;
-  [success] G3b_achieved : 6;
+  [success] G3a_achieved : 6;
+  [success] G3b_achieved : 5;
   [success] G4a_achieved : 7;
   [success] G4b_achieved : 2;
   [success] G5_achieved : 6;
