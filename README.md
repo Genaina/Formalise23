@@ -32,23 +32,23 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 
 ![](imgs/PRISMScreenshot2.png)
 
-3. Load the [PCTL-encoded requirements](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below, we provide a screenshot of the requirements loaded into PRISM:
+3. Load the [PCTL-encoded requirements](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below, we provide a screenshot of our alternative requirements loaded into PRISM:
 
 ![](imgs/PRISMProperties2.png)
 
 4. Configure PRISM to export the MDP policies it synthesises to a file by:    
     - Choosing Options in the Options menu.
-    - In 'Adversary export' property, choose DTMC.
-    - In 'Adversary export filename' property type the direct you want to have the synthesised MDP policies by PRISM.
+    - In the 'Adversary export' property, choose DTMC.
+    - In the 'Adversary export filename' property, type the name of the file to which PRISM will save the synthesised MDP policy (including the full path).
     - Select 'Save Options'.
     
 ![](imgs/PRISMPolicyScreen2.png)
 
-5. Go to the Properties tab, and right-click on the first property. Then select Verify. The expected outcome is depicted below.
+5. Go to the Properties tab, and right-click on one of the alternative requirements. Then select Verify. The expected outcome (for the second requirement) is depicted below.
 
 ![](imgs/PRISMPropertyVerified2.png)
 
-6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it into a file name at your preference.
+6. Export the MDP states to a file. From the menu select: Model -> Export -> States and save it into a file named at your preference, as shown below.
 
 ![](imgs/PRISMExportStates2.png)
 
