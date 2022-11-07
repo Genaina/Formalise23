@@ -118,4 +118,4 @@ Thus, what the goal controller decides for this scenario is (see again the first
 
 The two decisions of the goal controller -- i.e., the goal variants to be pursued initially, and the goal variants to be pursued after the successful completion of G2 and G3a, and G4a becoming unachievable) -- are also shown in our NIER paper and summarised in the diagram below.
 
-![](EDGE-goal-model-evolution.png)
+![](imgs/EDGE-goal-model-evolution.png)
