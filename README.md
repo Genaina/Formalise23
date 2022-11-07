@@ -52,8 +52,15 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 
 ![](imgs/PRISMExportStates2.png)
 
-7. Extract the goal controller from the MDP policy synthesised by PRISM by setting up the failing configuration at stake. For example:
+7. Use the MDP policy file and the MDP states file to determine the actions of the synthesised controller in different scenarios as explained below. We note that this somewhat tedious process can be easily automated.
 
+To find out the goal variants that the controller decides to pursue in the initial state, observe at the top of the MDP state file that an MDP state is defined by the tuple:
+
+    (G2_pursued,G3_pursued,G4_pursued,G5_pursued,G6_pursued,n,
+    G2_achievable,G2_achieved,G3a_achievable,G3b_achievable,G3a_achieved,G3b_achieved,
+    G4a_achievable,G4b_achievable,G4a_achieved,G4b_achieved,G5_achievable,G5_achieved,
+    G6a_achievable,G6b_achievable,G6a_achieved,G6b_achieved,step,fail,t)
+    
 The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
     52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
