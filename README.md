@@ -117,3 +117,5 @@ which correspond to the following entries from the MDP state file:
 Thus, what the goal controller decides for this scenario is (see again the first five elements of the tuple, i.e., G2_pursued, G3_pursued, G4_pursued, G5_pursued and G6_pursued) that G2_pursued=G3_pursued=0 (since these two goals have already been achieved), G4_pursued=2 (i.e., the system should now pursue variant 2 of goal G4), G5_pursued=1 and G6_pursued=1. 
 
 The two decisions of the goal controller -- i.e., the goal variants to be pursued initially, and the goal variants to be pursued after the successful completion of G2 and G3a, and G4a becoming unachievable) -- are also shown in our NIER paper and summarised in the diagram below.
+
+![](EDGE-goal-model-evolution.png)
