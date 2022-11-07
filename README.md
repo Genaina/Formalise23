@@ -114,22 +114,6 @@ which correspond to the following entries from the MDP state file:
     20237:(0,0,2,1,1,4,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
     20248:(0,0,2,1,1,5,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
     
-Thus, what the goal controller decides for this scenario is (see again the first five elements of the tuple, i.e., G2_pursued, G3_pursued, G4_pursued, G5_pursued and G6_pursued) that G2_pursued=G3_pursued=0 (since these two goals were already achieved), G4_pursued=2, G5_pursued=1 and G6_pursued=1.
+Thus, what the goal controller decides for this scenario is (see again the first five elements of the tuple, i.e., G2_pursued, G3_pursued, G4_pursued, G5_pursued and G6_pursued) that G2_pursued=G3_pursued=0 (since these two goals have already been achieved), G4_pursued=2 (i.e., the system should now pursue variant 2 of goal G4), G5_pursued=1 and G6_pursued=1. 
 
-
-
-
-However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
-
-    52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
-
-The trace above is an excerpt of the [MDPstates.txt file](EDGE-CaseStudy/MDPstates.txt). 
-
-Given the turn to the controller, it pursues another variant for G3, and skips G2 as it was already achieved as indicated by the first two fields in the tuple below (0,2,...). Notice that the controller is still with the turn (t=true) as it can be noticed from the last field of the tuple below. 
-
-    41337:(0,2,1,1,1,2,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
-
-Then the full policy below is passed to the Change Management, where G2 is no longer pursued(G2_pursued=0 in the first field) as it has been already achieved:
-
-    41187:(0,2,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,false)
-
+The two decisions of the goal controller -- i.e., the goal variants to be pursued initially, and the goal variants to be pursued after the successful completion of G2 and G3a, and G4a becoming unachievable) -- are also shown in our NIER paper and summarised in the diagram below.
