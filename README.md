@@ -32,7 +32,7 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 
 ![](imgs/PRISMScreenshot2.png)
 
-3. Load the [PCTL-encoded property](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below a screenshot of the expect loaded properties file:
+3. Load the [PCTL-encoded requirements](EDGE-CaseStudy/Requirements.pctl) into PRISM.  Below, we provide a screenshot of the requirements loaded into PRISM:
 
 ![](imgs/PRISMProperties2.png)
 
