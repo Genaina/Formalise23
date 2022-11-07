@@ -63,8 +63,7 @@ To find out the goal variants that the controller decides to pursue in the initi
     
 and notice from the MDP model that, in the initial MDP state, the value of this tuple is:
 
-    (0,0,0,0,0,0,true,false,true,true,false,false,true,true,false,false,true,false,true,
-    true,false,false,0,false,true)
+    (0,0,0,0,0,0,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
 A lookup for this tuple in the MDP states file yields
 
