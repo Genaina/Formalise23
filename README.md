@@ -92,8 +92,34 @@ and thus to determine that the controller path (i.e., sequence of states) 1114 -
     42087:(1,1,1,1,0,4,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
     42239:(1,1,1,1,1,5,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
 
+The values of the first five elements of these tuples (correspondig to the MDP state variables G2_pursued, G3_pursued, G4_pursued, G5_pursued and G6_pursued, respectively) show that the initial goal variants that the goal controller selects for the system to pursue are G2, G3a, G4a, G5 and G6a.
 
-The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
+For a second example, assume now that the system, under the control of the change management layer, successfully achieves goals G2 and G3a, but finds goal G4a no longer achievable. As a result, the change management layer must inform the goal management layer (i.e., the EDGE goal controller) about this situation, so that the goal controller can select a modified set of goal variants for the system to pursue. At the point where the goal controller is invoked again, the MDP state will correspond to the following tuple
+
+    (1,1,1,1,1,0,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    
+Notice the key differences from state 42239 above: the values for the elements G2_achieved, G3a_achieved and G4a_achievable are true, true and false, respectively. As before, a quick search through the MDP states file shows that this is state 42194, and another search through the MDP policy file shows that the goal controller takes the following sequence of transitions from state 42194:
+
+    42194 25519 1
+    25519 15606 1
+    15606 20217 1
+    20217 20237 1
+    20237 20248 1
+    
+which correspond to the following entries from the MDP state file:
+
+    25519:(0,1,1,1,1,1,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    15606:(0,0,1,1,1,2,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    20217:(0,0,2,1,1,3,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    20237:(0,0,2,1,1,4,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    20248:(0,0,2,1,1,5,true,true,true,true,true,false,false,true,false,false,true,false,true,true,false,false,0,false,true)
+    
+Thus, what the goal controller decides for this scenario is (see again the first five elements of the tuple, i.e., G2_pursued, G3_pursued, G4_pursued, G5_pursued and G6_pursued) that G2_pursued=G3_pursued=0 (since these two goals were already achieved), G4_pursued=2, G5_pursued=1 and G6_pursued=1.
+
+
+
+
+However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
     52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
 
