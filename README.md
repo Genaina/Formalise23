@@ -56,11 +56,43 @@ These two probabilistic temporal logic formulae that can be supplied to PRISM in
 
 To find out the goal variants that the controller decides to pursue in the initial state, observe at the top of the MDP state file that an MDP state is defined by the tuple:
 
-    (G2_pursued,G3_pursued,G4_pursued,G5_pursued,G6_pursued,n,
-    G2_achievable,G2_achieved,G3a_achievable,G3b_achievable,G3a_achieved,G3b_achieved,
-    G4a_achievable,G4b_achievable,G4a_achieved,G4b_achieved,G5_achievable,G5_achieved,
-    G6a_achievable,G6b_achievable,G6a_achieved,G6b_achieved,step,fail,t)
+    (G2_pursued,G3_pursued,G4_pursued,G5_pursued,G6_pursued,n,G2_achievable,G2_achieved,
+    G3a_achievable,G3b_achievable,G3a_achieved,G3b_achieved,G4a_achievable,G4b_achievable,
+    G4a_achieved,G4b_achieved,G5_achievable,G5_achieved,G6a_achievable,G6b_achievable,
+    G6a_achieved,G6b_achieved,step,fail,t)
     
+and notice from the MDP model that, in the initial MDP state, the value of this tuple is:
+
+    (0,0,0,0,0,0,true,false,true,true,false,false,true,true,false,false,true,false,true,
+    true,false,false,0,false,true)
+
+A lookup for this tuple in the MDP states file yields
+
+    1114:(0,0,0,0,0,0,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    
+which indicates that the initial MDP state is the state with ID 1114.
+
+Next, open the MDP policy file and search for this state ID; the search yields
+
+    1114 34664 1
+    
+which indicates that the synthesised goal controller transitions from the initial state with ID 1114 to the state with ID 34664 with probability 1. Looking up state 34664 in the MDP policy file shows that the next transitions (i.e., the transition from state 34664) is to state 40824. Continue this process to extract all of the following transitions from the MDP policy file:
+
+    1114 34664 1
+    34664 40824 1
+    40824 41845 1
+    41845 42087 1
+    42087 42239 1
+
+and thus to determine that the controller path (i.e., sequence of states) 1114 -> 34664 -> 40824 -> 41845 -> 42087 -> 42239. Finally, return to the MDP states file to "decode" the what goal controller decisions these states correspond to:
+
+    34664:(1,0,0,0,0,1,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    40824:(1,1,0,0,0,2,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    41845:(1,1,1,0,0,3,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    42087:(1,1,1,1,0,4,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+    42239:(1,1,1,1,1,5,true,false,true,true,false,false,true,true,false,false,true,false,true,true,false,false,0,false,true)
+
+
 The system started with pursuing all first goal variants. However, the system failed while pursuing G3a. In the trace below, the tuple '1,1,1,1,1' means that all the first variants of the goal model (G2,G3a,G4a,G5,G6a, respectively) were pursued. However, when pursuing G3a (step=2), it failed (fail = true in the prior to last field below). 
 
     52931:(1,1,1,1,1,0,true,true,false,true,false,false,true,true,false,false,true,false,true,true,false,false,2,true,false)
